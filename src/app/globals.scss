@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-size: $font-size-16;
+  background-color: $color-light-lilac;
+}
+
+$font-size-10: 10px;
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-20: 20px;
+$font-size-24: 24px;
+$font-size-32: 32px;
+$font-size-40: 40px;
+
+$line-height-21: 21px;
+$line-height-18: 18px;
+
+$color-red: hsl(0, 66%, 57%);
+$color-black: hsl(0, 0%, 3%);
+$color-white: hsl(0, 0%, 100%);
+$color-green: hsl(134, 47%, 45%);
+$color-orange: hsl(30, 100%, 70%);
+$color-light-lilac: hsl(240, 33%, 98%);
+
+$color-blue: hsl(210, 68%, 30%);
+$color-medium-blue: hsl(210, 22%, 47%);
+$color-lighter-blue: hsl(210, 25%, 90%);
+
+$color-dark-gray: hsl(240, 5%, 42%);
+$color-light-gray: hsl(240, 2%, 96%);
+$color-medium-gray: hsl(240, 2%, 45%);
+$color-dark-gray-2: hsl(240, 5%, 30%);
+$color-lighter-gray: hsl(240, 10%, 94%);
+$color-light-gray-2: hsl(210, 18%, 96%);
