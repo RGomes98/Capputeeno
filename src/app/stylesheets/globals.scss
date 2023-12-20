@@ -1,0 +1,16 @@
+@use './variables.scss' as var;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-size: var.$font-size-16;
+  color: var.$color-medium-gray;
+  background-color: var.$color-light-lilac;
+}
