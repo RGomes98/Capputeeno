@@ -1,0 +1,53 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.sortBy {
+  position: relative;
+}
+
+.dropdownButton {
+  all: unset;
+  gap: 0.3rem;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.text {
+  font-weight: 400;
+  white-space: nowrap;
+  font-size: var.$font-size-14;
+}
+
+.arrow {
+  width: 24px;
+  height: auto;
+}
+
+.menuList {
+  right: 0;
+  gap: 0.3rem;
+  display: flex;
+  bottom: -132px;
+  list-style: none;
+  position: absolute;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  flex-direction: column;
+  box-shadow: var.$box-shadow;
+  background-color: var.$color-white;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+}
+
+.option {
+  all: unset;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  white-space: nowrap;
+  font-size: var.$font-size-14;
+}
