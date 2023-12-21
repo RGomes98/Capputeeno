@@ -1,8 +1,10 @@
 import { headers } from 'next/headers';
 
-export const API_URL = () => {
-  const host = headers().get('host');
-  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+export type API_URL = { host: string | null; protocol: string };
 
-  return { host, protocol };
+export const API_URL = () => {
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+  const host = headers().get('host');
+
+  return { protocol, host };
 };
