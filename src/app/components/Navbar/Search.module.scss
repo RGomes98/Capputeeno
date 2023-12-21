@@ -1,0 +1,31 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.search {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-width: 352px;
+  position: relative;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: inherit;
+  max-width: 352px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  outline: transparent;
+  font-family: inherit;
+  font-size: var.$font-size-14;
+  background-color: var.$color-light-gray-2;
+}
+
+.loupe {
+  width: 24px;
+  right: 16px;
+  height: auto;
+  position: absolute;
+}
