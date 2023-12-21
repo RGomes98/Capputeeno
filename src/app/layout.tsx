@@ -1,6 +1,8 @@
 import { Saira, Saira_Stencil_One } from 'next/font/google';
+import { ContextProvider } from './context/Context';
 import { Navbar } from './components/Navbar/Navbar';
 import type { Metadata } from 'next';
+
 import './stylesheets/globals.scss';
 
 const saira = Saira({
@@ -26,11 +28,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='pt-BR'>
-      <body className={saira.className}>
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <ContextProvider>
+      <html lang='pt-BR'>
+        <body className={saira.className}>
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </ContextProvider>
   );
 }
