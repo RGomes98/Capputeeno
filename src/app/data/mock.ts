@@ -1,6 +1,17 @@
 import { faker } from '@faker-js/faker';
 
-const TOTAL_PAGES = 5;
+export type Product = {
+  id: string;
+  price_in_cents: number;
+  sales: number;
+  created_at: Date;
+  name: string;
+  description: string;
+  image_url: string;
+  category: string;
+};
+
+export const TOTAL_PAGES = 10;
 
 const baseProducts = [
   {
@@ -77,7 +88,7 @@ const baseProducts = [
   },
 ];
 
-export const allProducts = new Array(TOTAL_PAGES).fill(1).reduce((acc) => {
+export const allProducts = new Array(TOTAL_PAGES).fill(1).reduce<Product[]>((acc) => {
   const products = baseProducts
     .map((product) => ({
       ...product,
