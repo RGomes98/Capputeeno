@@ -1,0 +1,10 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.productGrid {
+  gap: 2.5rem;
+  width: 100%;
+  display: grid;
+  min-height: 100vh;
+  padding-block: 1rem 4rem;
+  grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+}

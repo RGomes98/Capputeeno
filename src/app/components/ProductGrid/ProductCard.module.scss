@@ -1,0 +1,52 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.productCard {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  text-decoration: none;
+  flex-direction: column;
+  border-radius: 8px 8px 0px 0px;
+  animation: fadeIn 0.4s forwards;
+  background-color: var.$color-white-transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 318px;
+}
+
+.wrapper {
+  gap: 0.4rem;
+  display: flex;
+  padding: 0.6rem 1rem;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 300;
+  font-size: var.$font-size-16;
+  color: var.$color-dark-gray-2;
+}
+
+.bar {
+  height: 1px;
+  width: 100%;
+  background-color: var.$color-lighter-blue;
+}
+
+.price {
+  font-weight: 600;
+  color: var.$color-black;
+  font-size: var.$font-size-14;
+}
