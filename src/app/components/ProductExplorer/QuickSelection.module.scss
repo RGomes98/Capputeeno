@@ -1,0 +1,41 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.selectorList {
+  gap: 2.5rem;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.selectorItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button {
+  all: unset;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: var.$font-size-16;
+  color: var.$color-medium-gray;
+}
+
+.bar {
+  width: 0%;
+  opacity: 0;
+  height: 4px;
+  background-color: var.$color-orange;
+  transition: width 0.2s ease-out, opacity 0.3s;
+}
+
+.selectorItem:hover .bar,
+.selectedBar {
+  opacity: 1;
+  width: 100%;
+}
+
+.selectedButton {
+  font-weight: 600;
+  color: var.$color-dark-gray-2;
+}
