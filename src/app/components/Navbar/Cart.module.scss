@@ -1,0 +1,28 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.link {
+  display: flex;
+  position: relative;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  width: 24px;
+  height: auto;
+}
+
+.count {
+  width: 17px;
+  right: -8px;
+  bottom: -8px;
+  height: 17px;
+  display: flex;
+  border-radius: 50%;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  color: var.$color-white;
+  font-size: var.$font-size-10;
+  background-color: var.$color-red;
+}
