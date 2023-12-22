@@ -2,7 +2,7 @@ import { useContext } from '../context/Context';
 import type { Product } from '../data/mock';
 
 export const useSortBy = () => {
-  const { dropdownMenuState, setProducts, setDropdownMenuState } = useContext();
+  const { products, dropdownMenuState, setProducts, setDropdownMenuState } = useContext();
 
   const handleSortBy = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { id: sortBy } = event.currentTarget;
@@ -15,7 +15,7 @@ export const useSortBy = () => {
 
     if (isSortByInitial) return;
 
-    const sortingByCases: Record<string, string> = {
+    const sortingByCases: Record<string, (typeof dropdownMenuState)['sortingBy']> = {
       latestArrival: 'Novidades',
       highestPrice: 'Preço: Maior - menor',
       lowestPrice: 'Preço: Menor - maior',
@@ -31,7 +31,7 @@ export const useSortBy = () => {
 
     setDropdownMenuState((dropdownMenuState) => ({
       ...dropdownMenuState,
-      sortingBy: sortingByCases[sortBy] ?? 'Organizar por',
+      sortingBy: sortingByCases[sortBy],
     }));
 
     setProducts((products) => products.toSorted(sortingFunctions[sortBy]));
@@ -39,6 +39,7 @@ export const useSortBy = () => {
 
   return {
     handleSortBy,
+    isProductsEmpty: !products.length,
     currentSortOrder: dropdownMenuState['sortingBy'],
     isDropdownToggled: dropdownMenuState['isDropdownToggled'],
   };
