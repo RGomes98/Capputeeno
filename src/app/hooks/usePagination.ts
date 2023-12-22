@@ -51,7 +51,7 @@ export const usePagination = () => {
     isPaginationAtEnd,
     isPaginationAtStart,
     pagesAmount: PAGES_AMOUNT,
-    currentPage: paginationState['page'],
     paginationButtons: paginationState['buttons'],
+    currentPage: PAGES_AMOUNT ? paginationState['page'] : 0,
   };
 };
