@@ -6,6 +6,9 @@ export const usePagination = () => {
   const ITEMS_PER_PAGE = 12;
   const PAGES_AMOUNT = Math.floor(products.length / ITEMS_PER_PAGE);
 
+  const isPaginationAtEnd = paginationState.buttons.some((n) => n >= PAGES_AMOUNT);
+  const isPaginationAtStart = paginationState.buttons.some((n) => n <= 1);
+
   const handlePaginationClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { id } = event.currentTarget;
 
@@ -25,10 +28,10 @@ export const usePagination = () => {
   };
 
   const handlePaginationSlide = (action: number) => {
-    const isPaginationAtEnd = paginationState.buttons.some((n) => n >= PAGES_AMOUNT) && action > 0;
-    const isPaginationAtStart = paginationState.buttons.some((n) => n <= 1) && action < 0;
+    const isPaginationAtTheStart = isPaginationAtStart && action < 0;
+    const isPaginationAtTheEnd = isPaginationAtEnd && action > 0;
 
-    if (isPaginationAtStart || isPaginationAtEnd) return;
+    if (isPaginationAtTheStart || isPaginationAtTheEnd) return;
 
     setPaginationState((paginationState) => {
       const pageRangeFirstIndex = ITEMS_PER_PAGE * (paginationState.page + action) - ITEMS_PER_PAGE;
@@ -45,6 +48,9 @@ export const usePagination = () => {
   return {
     handlePaginationClick,
     handlePaginationSlide,
+    isPaginationAtEnd,
+    isPaginationAtStart,
+    pagesAmount: PAGES_AMOUNT,
     currentPage: paginationState['page'],
     paginationButtons: paginationState['buttons'],
   };
