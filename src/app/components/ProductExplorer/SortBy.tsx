@@ -6,15 +6,15 @@ import styles from './SortBy.module.scss';
 import Image from 'next/image';
 
 export const SortBy = () => {
-  const { currentSortOrder, isDropdownToggled, handleSortBy } = useSortBy();
+  const { isProductsEmpty, currentSortOrder, isDropdownToggled, handleSortBy } = useSortBy();
 
   return (
-    <div className={styles.sortBy}>
+    <div className={`${styles.sortBy} ${(isProductsEmpty && styles.disabled) || ''}`}>
       <button id='initial' onClick={(event) => handleSortBy(event)} className={styles.dropdownButton}>
         <span className={styles.text}>{currentSortOrder}</span>
         <Image className={styles.arrow} src='/arrow-down.svg' alt='arrow-down' width={24} height={24} />
       </button>
-      {isDropdownToggled && (
+      {!isProductsEmpty && isDropdownToggled && (
         <ul className={styles.menuList}>
           <li className={styles.menuItem}>
             <button id='latestArrival' onClick={(event) => handleSortBy(event)} className={styles.option}>

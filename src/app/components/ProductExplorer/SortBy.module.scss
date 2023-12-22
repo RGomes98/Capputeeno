@@ -25,6 +25,7 @@
 
 .menuList {
   right: 0;
+  z-index: 1;
   gap: 0.3rem;
   display: flex;
   bottom: -132px;
@@ -50,4 +51,9 @@
   align-items: center;
   white-space: nowrap;
   font-size: var.$font-size-14;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
