@@ -49,7 +49,7 @@ export const PaginationBar = () => {
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
           ${getElementConditionalStyles('equality', thirdIndex, currentPage, styles.enabled)}
-          ${getElementConditionalStyles('relational', secondIndex, pagesAmount, styles.disabled)}`}
+          ${getElementConditionalStyles('relational', thirdIndex, pagesAmount, styles.disabled)}`}
         >
           {thirdIndex}
         </button>
@@ -60,7 +60,7 @@ export const PaginationBar = () => {
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
           ${getElementConditionalStyles('equality', fourthIndex, currentPage, styles.enabled)}
-          ${getElementConditionalStyles('relational', secondIndex, pagesAmount, styles.disabled)}`}
+          ${getElementConditionalStyles('relational', fourthIndex, pagesAmount, styles.disabled)}`}
         >
           {fourthIndex}
         </button>
@@ -71,7 +71,7 @@ export const PaginationBar = () => {
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
           ${getElementConditionalStyles('equality', fifthIndex, currentPage, styles.enabled)}
-          ${getElementConditionalStyles('relational', secondIndex, pagesAmount, styles.disabled)}`}
+          ${getElementConditionalStyles('relational', fifthIndex, pagesAmount, styles.disabled)}`}
         >
           {fifthIndex}
         </button>
