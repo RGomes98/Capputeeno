@@ -1,13 +1,22 @@
 'use client';
 
-import { getSelectedElementStyle } from '@/app/utils/getSelectedElementStyle';
+import { getElementConditionalStyles } from '@/app/utils/getElementConditionalStyles';
 import { usePagination } from '@/app/hooks/usePagination';
 
 import styles from './PaginationBar.module.scss';
 import Image from 'next/image';
 
 export const PaginationBar = () => {
-  const { currentPage, paginationButtons, handlePaginationClick, handlePaginationSlide } = usePagination();
+  const {
+    pagesAmount,
+    currentPage,
+    paginationButtons,
+    isPaginationAtEnd,
+    isPaginationAtStart,
+    handlePaginationClick,
+    handlePaginationSlide,
+  } = usePagination();
+
   const [firstIndex, secondIndex, thirdIndex, fourthIndex, fifthIndex] = paginationButtons;
 
   return (
@@ -17,7 +26,8 @@ export const PaginationBar = () => {
           id={String(firstIndex)}
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle(firstIndex, currentPage, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', firstIndex, currentPage, styles.enabled)}
+          ${getElementConditionalStyles('relational', firstIndex, pagesAmount, styles.disabled)}`}
         >
           {firstIndex}
         </button>
@@ -27,7 +37,8 @@ export const PaginationBar = () => {
           id={String(secondIndex)}
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle(secondIndex, currentPage, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', secondIndex, currentPage, styles.enabled)}
+          ${getElementConditionalStyles('relational', secondIndex, pagesAmount, styles.disabled)}`}
         >
           {secondIndex}
         </button>
@@ -37,7 +48,8 @@ export const PaginationBar = () => {
           id={String(thirdIndex)}
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle(thirdIndex, currentPage, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', thirdIndex, currentPage, styles.enabled)}
+          ${getElementConditionalStyles('relational', secondIndex, pagesAmount, styles.disabled)}`}
         >
           {thirdIndex}
         </button>
@@ -47,7 +59,8 @@ export const PaginationBar = () => {
           id={String(fourthIndex)}
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle(fourthIndex, currentPage, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', fourthIndex, currentPage, styles.enabled)}
+          ${getElementConditionalStyles('relational', secondIndex, pagesAmount, styles.disabled)}`}
         >
           {fourthIndex}
         </button>
@@ -57,18 +70,25 @@ export const PaginationBar = () => {
           id={String(fifthIndex)}
           onClick={(event) => handlePaginationClick(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle(fifthIndex, currentPage, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', fifthIndex, currentPage, styles.enabled)}
+          ${getElementConditionalStyles('relational', secondIndex, pagesAmount, styles.disabled)}`}
         >
           {fifthIndex}
         </button>
       </li>
       <li className={styles.paginationItem}>
-        <button onClick={() => handlePaginationSlide(-1)} className={styles.button}>
+        <button
+          onClick={() => handlePaginationSlide(-1)}
+          className={`${styles.button} ${(isPaginationAtStart && styles.disabled) || ''}`}
+        >
           <Image className={styles.arrow} src='/arrow-left.svg' alt='arrow-left' width={24} height={24} />
         </button>
       </li>
       <li className={styles.paginationItem}>
-        <button onClick={() => handlePaginationSlide(+1)} className={styles.button}>
+        <button
+          onClick={() => handlePaginationSlide(+1)}
+          className={`${styles.button} ${(isPaginationAtEnd && styles.disabled) || ''}`}
+        >
           <Image className={styles.arrow} src='/arrow-right.svg' alt='arrow-left' width={24} height={24} />
         </button>
       </li>
