@@ -4,9 +4,16 @@ import { useState, createContext, useContext as useReactContext } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import type { Product } from '../data/mock';
 
+type SortingBy =
+  | 'Organizar por'
+  | 'Novidades'
+  | 'Preço: Maior - menor'
+  | 'Preço: Menor - maior'
+  | 'Mais vendidos';
+
+type DropdownMenuState = { isDropdownToggled: boolean; sortingBy: SortingBy };
 type PaginationState = { page: number; range: number[]; buttons: number[] };
 type SelectedCategory = 'filterByAll' | 'filterByTShirts' | 'filterByMugs';
-type DropdownMenuState = { isDropdownToggled: boolean; sortingBy: string };
 type SetPaginationState = Dispatch<SetStateAction<PaginationState>>;
 type SetProducts = Dispatch<SetStateAction<Product[]>>;
 
