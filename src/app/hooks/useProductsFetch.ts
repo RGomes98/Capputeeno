@@ -4,7 +4,7 @@ import type { Product } from '../data/mock';
 import { useEffect, useState } from 'react';
 
 export const useProductsFetch = ({ protocol, host }: API_URL) => {
-  const { setProducts, setProductsInitialState } = useContext();
+  const { products, setProducts, setProductsInitialState } = useContext();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -25,5 +25,5 @@ export const useProductsFetch = ({ protocol, host }: API_URL) => {
     })();
   }, [host, protocol, setProducts, setProductsInitialState]);
 
-  return { isLoading };
+  return { products, isLoading };
 };
