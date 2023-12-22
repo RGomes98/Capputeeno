@@ -30,12 +30,12 @@
 }
 
 .selectorItem:hover .bar,
-.selectedBar {
+.enabledBar {
   opacity: 1;
   width: 100%;
 }
 
-.selectedButton {
+.enabledBtn {
   font-weight: 600;
   color: var.$color-dark-gray-2;
 }

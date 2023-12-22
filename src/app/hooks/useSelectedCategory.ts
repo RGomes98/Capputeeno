@@ -2,10 +2,17 @@ import { useContext } from '../context/Context';
 import type { Product } from '../data/mock';
 
 export const useSelectedCategory = () => {
-  const { productsInitialState, setProducts, setPaginationState, setDropdownMenuState } = useContext();
+  const {
+    productsInitialState,
+    selectedCategory,
+    setProducts,
+    setPaginationState,
+    setSelectedCategory,
+    setDropdownMenuState,
+  } = useContext();
 
   const handleSelectedCategory = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const { id: filterBy } = event.currentTarget;
+    const { id: filterBy } = <{ id: typeof selectedCategory }>event.currentTarget;
 
     setPaginationState(() => ({
       page: 1,
@@ -19,12 +26,14 @@ export const useSelectedCategory = () => {
     }));
 
     const filteringFunctions: Record<string, () => Product[]> = {
+      filterByAll: () => productsInitialState,
       filterByTShirts: () => productsInitialState.filter(({ category }) => category === 't-shirts'),
       filterByMugs: () => productsInitialState.filter(({ category }) => category === 'mugs'),
     };
 
-    setProducts(filteringFunctions[filterBy]?.() ?? productsInitialState);
+    setSelectedCategory(filterBy);
+    setProducts(filteringFunctions[filterBy]?.());
   };
 
-  return { handleSelectedCategory };
+  return { selectedCategory, handleSelectedCategory };
 };

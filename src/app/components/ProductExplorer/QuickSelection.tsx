@@ -1,65 +1,55 @@
 'use client';
 
-import { getSelectedElementStyle } from '@/app/utils/getSelectedElementStyle';
+import { getElementConditionalStyles } from '@/app/utils/getElementConditionalStyles';
 import { useSelectedCategory } from '@/app/hooks/useSelectedCategory';
-import { useContext } from '@/app/context/Context';
 
 import styles from './QuickSelection.module.scss';
 
 export const QuickSelection = () => {
-  const { selectedCategory, setSelectedCategory } = useContext();
-  const { handleSelectedCategory } = useSelectedCategory();
+  const { selectedCategory, handleSelectedCategory } = useSelectedCategory();
 
   return (
     <ul className={styles.selectorList}>
       <li className={styles.selectorItem}>
         <button
-          onClick={(event) => {
-            handleSelectedCategory(event);
-            setSelectedCategory('filterByAll');
-          }}
+          id='filterByAll'
+          onClick={(event) => handleSelectedCategory(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle('filterByAll', selectedCategory, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', 'filterByAll', selectedCategory, styles.enabledBtn)}`}
         >
           TODOS OS PRODUTOS
         </button>
         <span
           className={`${styles.bar}
-          ${getSelectedElementStyle('filterByAll', selectedCategory, styles.selectedBar)}`}
+          ${getElementConditionalStyles('equality', 'filterByAll', selectedCategory, styles.enabledBar)}`}
         />
       </li>
       <li className={styles.selectorItem}>
         <button
           id='filterByTShirts'
-          onClick={(event) => {
-            handleSelectedCategory(event);
-            setSelectedCategory('filterByTShirts');
-          }}
+          onClick={(event) => handleSelectedCategory(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle('filterByTShirts', selectedCategory, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', 'filterByTShirts', selectedCategory, styles.enabledBtn)}`}
         >
           CAMISETAS
         </button>
         <span
           className={`${styles.bar}
-          ${getSelectedElementStyle('filterByTShirts', selectedCategory, styles.selectedBar)}`}
+          ${getElementConditionalStyles('equality', 'filterByTShirts', selectedCategory, styles.enabledBar)}`}
         />
       </li>
       <li className={styles.selectorItem}>
         <button
           id='filterByMugs'
-          onClick={(event) => {
-            handleSelectedCategory(event);
-            setSelectedCategory('filterByMugs');
-          }}
+          onClick={(event) => handleSelectedCategory(event)}
           className={`${styles.button}
-          ${getSelectedElementStyle('filterByMugs', selectedCategory, styles.selectedButton)}`}
+          ${getElementConditionalStyles('equality', 'filterByMugs', selectedCategory, styles.enabledBtn)}`}
         >
           CANECAS
         </button>
         <span
           className={`${styles.bar}
-          ${getSelectedElementStyle('filterByMugs', selectedCategory, styles.selectedBar)}`}
+          ${getElementConditionalStyles('equality', 'filterByMugs', selectedCategory, styles.enabledBar)}`}
         />
       </li>
     </ul>
