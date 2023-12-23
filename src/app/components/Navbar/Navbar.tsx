@@ -3,6 +3,7 @@ import { Search } from './Search';
 import { Cart } from './Cart';
 
 import styles from './Navbar.module.scss';
+import Link from 'next/link';
 
 const sairaStencilOne = Saira_Stencil_One({
   display: 'swap',
@@ -16,7 +17,9 @@ export const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.primaryWrapper}>
-        <h1 className={`${styles.heading} ${sairaStencilOne.className}`}>Capputeeno</h1>
+        <Link href='/' className={`${styles.heading} ${sairaStencilOne.className}`}>
+          Capputeeno
+        </Link>
         <div className={styles.secondaryWrapper}>
           <Search />
           <Cart />
