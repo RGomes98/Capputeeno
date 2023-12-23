@@ -6,5 +6,21 @@
   display: grid;
   min-height: 100vh;
   padding-block: 1rem 4rem;
-  grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .productGrid {
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .productGrid {
+    gap: 1rem;
+    padding-block: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

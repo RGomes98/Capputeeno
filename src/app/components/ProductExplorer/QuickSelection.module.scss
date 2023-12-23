@@ -39,3 +39,19 @@
   font-weight: 600;
   color: var.$color-dark-gray-2;
 }
+
+@media (max-width: 625px) {
+  .selectorList {
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 415px) {
+  .selectorList {
+    width: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

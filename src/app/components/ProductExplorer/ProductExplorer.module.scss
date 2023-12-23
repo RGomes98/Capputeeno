@@ -1,6 +1,23 @@
 .productExplorer {
+  gap: 1.5rem;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 625px) {
+  .productExplorer {
+    justify-content: end;
+  }
+}
+
+@media (max-width: 415px) {
+  .productExplorer {
+    gap: 1rem;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 }

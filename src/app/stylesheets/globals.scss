@@ -26,3 +26,20 @@ main {
   flex-direction: column;
   padding-block-start: 2.5rem;
 }
+
+@media (max-width: 1000px) {
+  main {
+    width: 90%;
+  }
+}
+
+@media (max-width: 740px) {
+  main {
+    gap: 1rem;
+    padding-block-start: 1.5rem;
+  }
+
+  main > ul:nth-child(2) {
+    display: none;
+  }
+}

@@ -36,7 +36,9 @@
 
 .name {
   font-weight: 300;
+  overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: var.$font-size-16;
   color: var.$color-dark-gray-2;
 }
