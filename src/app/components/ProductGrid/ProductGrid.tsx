@@ -17,11 +17,9 @@ export const ProductGrid = ({ protocol, host }: API_URL) => {
   return (
     <div className={styles.productGrid}>
       <ProductGridPlaceholder isLoading={isLoading} productsLength={products.length} />
-      {products
-        .slice(pageRangeFirstIndex, pageRangeSecondIndex)
-        .map(({ id, name, image_url, price_in_cents }) => (
-          <ProductCard key={id} id={id} name={name} image={image_url} price={price_in_cents / 100} />
-        ))}
+      {products.slice(pageRangeFirstIndex, pageRangeSecondIndex).map((product) => (
+        <ProductCard key={product.id} {...product} />
+      ))}
     </div>
   );
 };
