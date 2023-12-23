@@ -4,7 +4,7 @@ export const usePagination = () => {
   const { products, paginationState, setPaginationState } = useContext();
 
   const ITEMS_PER_PAGE = 12;
-  const PAGES_AMOUNT = Math.floor(products.length / ITEMS_PER_PAGE);
+  const PAGES_AMOUNT = Math.ceil(products.length / ITEMS_PER_PAGE);
 
   const isPaginationAtEnd = paginationState.buttons.some((n) => n >= PAGES_AMOUNT);
   const isPaginationAtStart = paginationState.buttons.some((n) => n <= 1);
@@ -12,24 +12,24 @@ export const usePagination = () => {
   const handlePaginationClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { id } = event.currentTarget;
 
-    const currentPage = Number(id);
-    const isButtonDisabled = PAGES_AMOUNT < currentPage;
+    const currentPageNumber = Number(id);
+    const isSelectedButtonDisabled = PAGES_AMOUNT < currentPageNumber;
 
-    if (isButtonDisabled) return;
+    if (isSelectedButtonDisabled) return;
 
-    const pageRangeFirstIndex = ITEMS_PER_PAGE * currentPage - ITEMS_PER_PAGE;
-    const pageRangeLastIndex = ITEMS_PER_PAGE * currentPage;
+    const pageRangeFirstIndex = ITEMS_PER_PAGE * currentPageNumber - ITEMS_PER_PAGE;
+    const pageRangeLastIndex = ITEMS_PER_PAGE * currentPageNumber;
 
     setPaginationState((paginationState) => ({
       ...paginationState,
-      page: currentPage,
+      page: currentPageNumber,
       range: [pageRangeFirstIndex, pageRangeLastIndex],
     }));
   };
 
   const handlePaginationSlide = (action: number) => {
-    const isPaginationAtTheStart = isPaginationAtStart && action < 0;
-    const isPaginationAtTheEnd = isPaginationAtEnd && action > 0;
+    const isPaginationAtTheStart = isPaginationAtStart && action === -1;
+    const isPaginationAtTheEnd = isPaginationAtEnd && action === +1;
 
     if (isPaginationAtTheStart || isPaginationAtTheEnd) return;
 
@@ -52,6 +52,6 @@ export const usePagination = () => {
     isPaginationAtStart,
     pagesAmount: PAGES_AMOUNT,
     paginationButtons: paginationState['buttons'],
-    currentPage: PAGES_AMOUNT ? paginationState['page'] : 0,
+    currentPage: products.length ? paginationState['page'] : 0,
   };
 };

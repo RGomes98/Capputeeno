@@ -89,7 +89,7 @@ export const PaginationBar = () => {
           onClick={() => handlePaginationSlide(+1)}
           className={`${styles.button} ${(isPaginationAtEnd && styles.disabled) || ''}`}
         >
-          <Image className={styles.arrow} src='/arrow-right.svg' alt='arrow-left' width={24} height={24} />
+          <Image className={styles.arrow} src='/arrow-right.svg' alt='arrow-right' width={24} height={24} />
         </button>
       </li>
     </ul>
