@@ -4,10 +4,12 @@ import type { Product } from '../data/mock';
 import { useEffect, useState } from 'react';
 
 export const useProductsFetch = ({ protocol, host }: API_URL) => {
-  const { products, setProducts, setProductsInitialState } = useContext();
+  const { products, productsInitialState, setProducts, setProductsInitialState } = useContext();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    if (productsInitialState.length) return;
+
     (async () => {
       try {
         setIsLoading(true);
@@ -23,7 +25,7 @@ export const useProductsFetch = ({ protocol, host }: API_URL) => {
         setIsLoading(false);
       }
     })();
-  }, [host, protocol, setProducts, setProductsInitialState]);
+  }, [host, protocol, productsInitialState, setProducts, setProductsInitialState]);
 
   return { products, isLoading };
 };
