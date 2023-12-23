@@ -1,8 +1,16 @@
-import { sairaStencilOne } from '@/app/layout';
+import { Saira_Stencil_One } from 'next/font/google';
 import { Search } from './Search';
 import { Cart } from './Cart';
 
 import styles from './Navbar.module.scss';
+
+const sairaStencilOne = Saira_Stencil_One({
+  display: 'swap',
+  style: 'normal',
+  weight: ['400'],
+  subsets: ['latin'],
+  fallback: ['system-ui', 'sans-serif'],
+});
 
 export const Navbar = () => {
   return (
