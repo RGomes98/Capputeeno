@@ -1,9 +1,9 @@
+import type { GetHostSettings } from '../utils/getHostSettings';
 import { useContext } from '../context/Context';
-import type { API_URL } from '../utils/API_URL';
 import type { Product } from '../data/mock';
 import { useEffect, useState } from 'react';
 
-export const useProductsFetch = ({ protocol, host }: API_URL) => {
+export const useProductsFetch = ({ protocol, host }: GetHostSettings) => {
   const { products, productsInitialState, setProducts, setProductsInitialState } = useContext();
   const [isLoading, setIsLoading] = useState(false);
 

@@ -12,9 +12,7 @@ export const useStateReset = () => {
   };
 
   const stateReset = (toReset: UseStateReset) => {
-    toReset.forEach((state) => {
-      stateResetInitialValues[state]?.();
-    });
+    toReset.forEach((state) => stateResetInitialValues[state]?.());
   };
 
   return { stateReset };

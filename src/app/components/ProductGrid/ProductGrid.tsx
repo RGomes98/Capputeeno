@@ -1,14 +1,14 @@
 'use client';
 
+import type { GetHostSettings } from '@/app/utils/getHostSettings';
 import { ProductGridPlaceholder } from './ProductGridPlaceholder';
 import { useProductsFetch } from '@/app/hooks/useProductsFetch';
-import type { API_URL } from '@/app/utils/API_URL';
 import { useContext } from '@/app/context/Context';
 import { ProductCard } from './ProductCard';
 
 import styles from './ProductGrid.module.scss';
 
-export const ProductGrid = ({ protocol, host }: API_URL) => {
+export const ProductGrid = ({ protocol, host }: GetHostSettings) => {
   const { products, isLoading } = useProductsFetch({ protocol, host });
   const { paginationState } = useContext();
 

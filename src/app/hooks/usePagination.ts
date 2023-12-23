@@ -6,23 +6,23 @@ export const usePagination = () => {
   const ITEMS_PER_PAGE = 12;
   const PAGES_AMOUNT = Math.ceil(products.length / ITEMS_PER_PAGE);
 
-  const isPaginationAtEnd = paginationState.buttons.some((n) => n >= PAGES_AMOUNT);
-  const isPaginationAtStart = paginationState.buttons.some((n) => n <= 1);
+  const isPaginationAtEnd = paginationState.buttons.some((pageNumber) => pageNumber >= PAGES_AMOUNT);
+  const isPaginationAtStart = paginationState.buttons.some((pageNumber) => pageNumber <= 1);
 
   const handlePaginationClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { id } = event.currentTarget;
 
-    const currentPageNumber = Number(id);
-    const isSelectedButtonDisabled = PAGES_AMOUNT < currentPageNumber;
+    const clickedButtonPageNumber = Number(id);
+    const isClickedButtonDisabled = PAGES_AMOUNT < clickedButtonPageNumber;
 
-    if (isSelectedButtonDisabled) return;
+    if (isClickedButtonDisabled) return;
 
-    const pageRangeFirstIndex = ITEMS_PER_PAGE * currentPageNumber - ITEMS_PER_PAGE;
-    const pageRangeLastIndex = ITEMS_PER_PAGE * currentPageNumber;
+    const pageRangeFirstIndex = ITEMS_PER_PAGE * clickedButtonPageNumber - ITEMS_PER_PAGE;
+    const pageRangeLastIndex = ITEMS_PER_PAGE * clickedButtonPageNumber;
 
     setPaginationState((paginationState) => ({
       ...paginationState,
-      page: currentPageNumber,
+      page: clickedButtonPageNumber,
       range: [pageRangeFirstIndex, pageRangeLastIndex],
     }));
   };
@@ -40,7 +40,7 @@ export const usePagination = () => {
       return {
         page: paginationState.page + action,
         range: [pageRangeFirstIndex, pageRangeLastIndex],
-        buttons: [...paginationState.buttons.map((n) => n + action)],
+        buttons: [...paginationState.buttons.map((pageNumber) => pageNumber + action)],
       };
     });
   };
