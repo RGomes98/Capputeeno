@@ -5,6 +5,7 @@
   width: 100%;
   display: grid;
   min-height: 100vh;
+  position: relative;
   padding-block: 1rem 4rem;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
