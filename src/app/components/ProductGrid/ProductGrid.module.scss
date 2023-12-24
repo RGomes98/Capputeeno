@@ -1,27 +1,35 @@
 @use '../../stylesheets/variables.scss' as var;
 
 .productGrid {
-  gap: 2.5rem;
+  gap: 2rem;
   width: 100%;
   display: grid;
   min-height: 100vh;
   position: relative;
+  justify-content: center;
   padding-block: 1rem 4rem;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 378px);
+  grid-template-columns: repeat(4, minmax(256px, 350px));
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .productGrid {
     gap: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(225px, 350px));
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 825px) {
   .productGrid {
-    gap: 1rem;
+    gap: 1.5rem 1rem;
     padding-block: 1rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(225px, 350px));
+  }
+}
+
+@media (max-width: 525px) {
+  .productGrid {
+    gap: 1.5rem;
+    grid-template-columns: repeat(1, 100%);
   }
 }
