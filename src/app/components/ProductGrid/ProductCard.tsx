@@ -1,4 +1,4 @@
-import { convertToCurrency } from '@/app/utils/convertToCurrency';
+import { formatToCurrency } from '@/app/utils/formatToCurrency';
 import { Product } from '@/app/data/mock';
 
 import styles from './ProductCard.module.scss';
@@ -12,7 +12,7 @@ export const ProductCard = ({ id, name, image_url, price_in_cents }: Product) =>
       <div className={styles.wrapper}>
         <span className={styles.name}>{name}</span>
         <span className={styles.bar} />
-        <span className={styles.price}>{convertToCurrency(price_in_cents)}</span>
+        <span className={styles.price}>{formatToCurrency(price_in_cents)}</span>
       </div>
     </Link>
   );
