@@ -21,7 +21,7 @@ I utilized the following technologies to bring this project to life:
 - **Next.js:** Leveraged the power of Next.js for a fast and efficient web application.
 - **Typescript:** Ensured type safety and improved code maintainability with TypeScript.
 - **React.js:** Built the user interface using React.js for its component-based architecture.
-- **Sass:** Styled the components with SASS for a maintainable and modular styling approach.
+- **SASS:** Styled the components with SASS for a maintainable and modular styling approach.
 - **Figma:** Followed the provided Figma prototype for a pixel-perfect design.
 
 ## Getting Started
