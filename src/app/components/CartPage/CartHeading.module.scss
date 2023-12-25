@@ -1,0 +1,23 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.productsHeading {
+  font-weight: 500;
+  font-size: var.$font-size-24;
+  color: var.$color-dark-gray-2;
+}
+
+.productsCountWrapper {
+  gap: 0.3rem;
+  display: flex;
+  margin-top: -1rem;
+  align-items: center;
+  color: var.$color-dark-gray-2;
+}
+
+.productsCount {
+  font-weight: 300;
+}
+
+.productsSubtotal {
+  font-weight: 600;
+}

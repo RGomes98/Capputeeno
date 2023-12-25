@@ -1,0 +1,99 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.product {
+  display: flex;
+  max-height: 215px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var.$color-white;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  max-width: 256px;
+  object-fit: cover;
+}
+
+.productDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 1.5rem 2rem;
+  justify-content: space-between;
+}
+
+.productHeadingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productHeading {
+  font-weight: 300;
+  font-size: var.$font-size-20;
+  color: var.$color-dark-gray-2;
+}
+
+.deleteBtn {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+}
+
+.delete {
+  width: 100%;
+  height: 100%;
+  max-width: 24px;
+}
+
+.productDescription {
+  font-weight: 400;
+  font-size: var.$font-size-14;
+  color: var.$color-dark-gray-2;
+  line-height: var.$line-height-18;
+}
+
+.productOptionsWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.productsOptions {
+  height: 45px;
+  cursor: pointer;
+  font-weight: 400;
+  appearance: none;
+  border-radius: 8px;
+  font-size: inherit;
+  outline: transparent;
+  padding: 0 3rem 0 1rem;
+  background-size: 1.8rem;
+  background-repeat: no-repeat;
+  color: var.$color-medium-gray;
+  background-position: 2.5rem center;
+  background-image: url('/arrow-down.svg');
+  background-color: var.$color-light-gray-2;
+  border: 1px solid var.$color-medium-gray-2;
+}
+
+.productPrice {
+  font-weight: 600;
+  color: var.$color-black;
+}
+
+@media (max-width: 1300px) {
+  .product {
+    max-height: unset;
+    flex-direction: column;
+  }
+
+  .productImage {
+    max-width: unset;
+  }
+
+  .productDetails {
+    gap: 1rem;
+  }
+}
