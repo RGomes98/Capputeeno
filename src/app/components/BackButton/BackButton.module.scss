@@ -1,0 +1,18 @@
+@use '../../stylesheets/variables.scss' as var;
+
+.backLink {
+  all: unset;
+  gap: 0.5rem;
+  display: flex;
+  cursor: pointer;
+  width: fit-content;
+  align-items: center;
+  text-decoration: none;
+  color: var.$color-medium-blue;
+}
+
+.back {
+  width: 100%;
+  height: auto;
+  max-width: 24px;
+}

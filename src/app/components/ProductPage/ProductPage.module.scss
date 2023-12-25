@@ -21,20 +21,6 @@
   }
 }
 
-.backLink {
-  gap: 0.5rem;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var.$color-medium-blue;
-}
-
-.back {
-  width: 100%;
-  height: auto;
-  max-width: 24px;
-}
-
 .mainWrapper {
   gap: 2rem;
   width: 100%;
@@ -111,8 +97,10 @@
   display: flex;
   cursor: pointer;
   margin-top: auto;
+  font-weight: 400;
   border-radius: 4px;
   padding-block: 0.7rem;
+  color: var.$color-white;
   justify-content: center;
   background-color: var.$color-blue;
 }
@@ -121,11 +109,6 @@
   width: 100%;
   height: auto;
   max-width: 24px;
-}
-
-.cartBtnText {
-  font-weight: 400;
-  color: var.$color-white;
 }
 
 @media (max-width: 1200px) {
