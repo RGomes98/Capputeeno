@@ -4,6 +4,15 @@ import { useState, createContext, useContext as useReactContext } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import type { Product } from '../data/mock';
 
+export type CartItem = Product & { quantity: number };
+
+export type ShoppingCart = {
+  itemsQuantity: number;
+  subtotal: number;
+  shippingCost: number;
+  items: CartItem[];
+};
+
 type SortingBy =
   | 'Organizar por'
   | 'Novidades'
@@ -28,13 +37,21 @@ type Context = {
   setDropdownMenuState: Dispatch<SetStateAction<DropdownMenuState>>;
   selectedCategory: SelectedCategory;
   setSelectedCategory: Dispatch<SetStateAction<SelectedCategory>>;
+  shoppingCart: ShoppingCart | null;
+  setShoppingCart: Dispatch<SetStateAction<ShoppingCart | null>>;
 };
 
 const Context = createContext({} as Context);
 
 export const useContext = () => useReactContext(Context);
 
+export const isLocalStorageDefined = typeof localStorage !== 'undefined' ? localStorage : null;
+
 export const ContextProvider = ({ children }: { children: JSX.Element }) => {
+  const [shoppingCart, setShoppingCart] = useState<ShoppingCart | null>(
+    isLocalStorageDefined && JSON.parse(localStorage.getItem('shoppingCart') || String(null))
+  );
+
   const [selectedCategory, setSelectedCategory] = useState<SelectedCategory>('filterByAll');
   const [productsInitialState, setProductsInitialState] = useState<Product[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
@@ -63,6 +80,8 @@ export const ContextProvider = ({ children }: { children: JSX.Element }) => {
         setDropdownMenuState,
         selectedCategory,
         setSelectedCategory,
+        shoppingCart,
+        setShoppingCart,
       }}
     >
       {children}
