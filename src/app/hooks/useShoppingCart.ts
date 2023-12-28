@@ -45,8 +45,8 @@ export const useShoppingCart = () => {
     const isShippingCostFree = cart.subtotal / 100 > 900 || cart.itemsQuantity <= 0;
     cart.shippingCost = isShippingCostFree ? 0 : 4000;
 
-    setShoppingCart(shoppingCartToMutate);
-    localStorage.setItem('shoppingCart', JSON.stringify(shoppingCartToMutate));
+    setShoppingCart(cart);
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
   };
 
   const addShoppingCartItem = (item: CartItem) => {
@@ -54,12 +54,14 @@ export const useShoppingCart = () => {
       const { items } = shoppingCartToMutate;
 
       const isItemAlreadyInCart = items.find(({ id }) => id === item.id);
-      if (!isItemAlreadyInCart) items.push(item);
+
+      if (isItemAlreadyInCart && isItemAlreadyInCart.quantity === 5) return;
+      !isItemAlreadyInCart ? items.push(item) : (isItemAlreadyInCart.quantity += 1);
       updateShoppingCart(shoppingCartToMutate);
     }
   };
 
-  const updateShoppintCartItem = (item: CartItem) => {
+  const updateShoppingCartItem = (item: CartItem) => {
     if (shoppingCartToMutate) {
       const { items } = shoppingCartToMutate;
 
@@ -69,7 +71,7 @@ export const useShoppingCart = () => {
     }
   };
 
-  const removeShoppintCartItem = (item: CartItem) => {
+  const removeShoppingCartItem = (item: CartItem) => {
     if (shoppingCartToMutate) {
       const { items } = shoppingCartToMutate;
 
@@ -83,7 +85,7 @@ export const useShoppingCart = () => {
     getShoppingCart,
     resetShoppingCart,
     addShoppingCartItem,
-    updateShoppintCartItem,
-    removeShoppintCartItem,
+    updateShoppingCartItem,
+    removeShoppingCartItem,
   };
 };

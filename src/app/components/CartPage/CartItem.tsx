@@ -6,7 +6,7 @@ import styles from './CartItem.module.scss';
 import Image from 'next/image';
 
 export const CartItem = (item: CartItemType) => {
-  const { updateShoppintCartItem, removeShoppintCartItem } = useShoppingCart();
+  const { updateShoppingCartItem, removeShoppingCartItem } = useShoppingCart();
   const { id, image_url, name, description, quantity, price_in_cents } = item;
   const options = [1, 2, 3, 4, 5];
 
@@ -15,7 +15,7 @@ export const CartItem = (item: CartItemType) => {
     const quantity = Number(value);
 
     if (!options.includes(quantity)) return;
-    updateShoppintCartItem({ ...item, quantity });
+    updateShoppingCartItem({ ...item, quantity });
   };
 
   return (
@@ -24,7 +24,7 @@ export const CartItem = (item: CartItemType) => {
       <div className={styles.productDetails}>
         <div className={styles.productHeadingWrapper}>
           <span className={styles.productHeading}>{name}</span>
-          <button onClick={() => removeShoppintCartItem(item)} className={styles.deleteBtn}>
+          <button onClick={() => removeShoppingCartItem(item)} className={styles.deleteBtn}>
             <Image className={styles.delete} src='/trash.svg' alt='delete' width={24} height={24} />
           </button>
         </div>
