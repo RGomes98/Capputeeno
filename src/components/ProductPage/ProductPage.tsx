@@ -1,8 +1,8 @@
-import { formatToCurrency } from '@/app/utils/formatToCurrency';
-import { useShoppingCart } from '@/app/hooks/useShoppingCart';
+import { formatToCurrency } from '@/utils/formatToCurrency';
+import { useShoppingCart } from '@/hooks/useShoppingCart';
 import { BackButton } from '../BackButton/BackButton';
 import { useRouter } from 'next/navigation';
-import { Product } from '@/app/data/mock';
+import type { Product } from '@/data/mock';
 
 import styles from './ProductPage.module.scss';
 import Image from 'next/image';

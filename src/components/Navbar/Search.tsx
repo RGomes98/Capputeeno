@@ -1,6 +1,6 @@
 'use client';
 
-import { useSearchbar } from '@/app/hooks/useSearchbar';
+import { useSearchbar } from '@/hooks/useSearchbar';
 
 import styles from './Search.module.scss';
 import Image from 'next/image';

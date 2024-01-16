@@ -1,5 +1,5 @@
-import { formatToCurrency } from '@/app/utils/formatToCurrency';
-import { useShoppingCart } from '@/app/hooks/useShoppingCart';
+import { formatToCurrency } from '@/utils/formatToCurrency';
+import { useShoppingCart } from '@/hooks/useShoppingCart';
 import { BackButton } from '../BackButton/BackButton';
 import { Fragment } from 'react';
 

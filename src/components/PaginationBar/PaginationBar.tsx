@@ -1,6 +1,6 @@
 'use client';
 
-import { usePagination } from '@/app/hooks/usePagination';
+import { usePagination } from '@/hooks/usePagination';
 import { PaginationButton } from './PaginationButton';
 
 import styles from './PaginationBar.module.scss';

@@ -1,7 +1,7 @@
 'use client';
 
-import { useShoppingCart } from '@/app/hooks/useShoppingCart';
-import { useMounted } from '@/app/hooks/useMounted';
+import { useShoppingCart } from '@/hooks/useShoppingCart';
+import { useMounted } from '@/hooks/useMounted';
 import { CartSidebar } from './CartSidebar';
 import { CartHeading } from './CartHeading';
 import { CartItem } from './CartItem';

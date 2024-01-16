@@ -1,7 +1,7 @@
 'use client';
 
-import { ProductPage } from '@/app/components/ProductPage/ProductPage';
-import { useContext } from '@/app/context/Context';
+import { ProductPage } from '@/components/ProductPage/ProductPage';
+import { useContext } from '@/context/Context';
 import { notFound } from 'next/navigation';
 
 export default function Product({ params: { slug } }: { params: { slug: string } }) {

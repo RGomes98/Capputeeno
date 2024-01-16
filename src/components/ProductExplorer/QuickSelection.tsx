@@ -1,7 +1,7 @@
 'use client';
 
-import { getElementConditionalStyles } from '@/app/utils/getElementConditionalStyles';
-import { useSelectedCategory } from '@/app/hooks/useSelectedCategory';
+import { getElementConditionalStyles } from '@/utils/getElementConditionalStyles';
+import { useSelectedCategory } from '@/hooks/useSelectedCategory';
 
 import styles from './QuickSelection.module.scss';
 

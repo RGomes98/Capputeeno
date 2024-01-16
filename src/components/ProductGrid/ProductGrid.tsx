@@ -1,9 +1,9 @@
 'use client';
 
-import type { GetHostSettings } from '@/app/utils/getHostSettings';
 import { ProductGridPlaceholder } from './ProductGridPlaceholder';
-import { useProductsFetch } from '@/app/hooks/useProductsFetch';
-import { useContext } from '@/app/context/Context';
+import type { GetHostSettings } from '@/utils/getHostSettings';
+import { useProductsFetch } from '@/hooks/useProductsFetch';
+import { useContext } from '@/context/Context';
 import { ProductCard } from './ProductCard';
 
 import styles from './ProductGrid.module.scss';

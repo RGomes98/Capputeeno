@@ -1,4 +1,4 @@
-import { useMounted } from '@/app/hooks/useMounted';
+import { useMounted } from '@/hooks/useMounted';
 import { Loader } from '../Loader/Loader';
 
 import styles from './ProductGridPlaceholder.module.scss';

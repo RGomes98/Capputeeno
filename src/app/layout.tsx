@@ -1,9 +1,9 @@
-import { ContextProvider } from './context/Context';
-import { Navbar } from './components/Navbar/Navbar';
+import { ContextProvider } from '@/context/Context';
+import { Navbar } from '@/components/Navbar/Navbar';
 import { Saira } from 'next/font/google';
 import type { Metadata } from 'next';
 
-import './stylesheets/globals.scss';
+import '../stylesheets/globals.scss';
 
 const saira = Saira({
   display: 'swap',

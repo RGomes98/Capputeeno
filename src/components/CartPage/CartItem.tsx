@@ -1,6 +1,6 @@
-import type { CartItem as CartItemType } from '@/app/context/Context';
-import { formatToCurrency } from '@/app/utils/formatToCurrency';
-import { useShoppingCart } from '@/app/hooks/useShoppingCart';
+import { CartItem as CartItemType } from '@/context/Context';
+import { formatToCurrency } from '@/utils/formatToCurrency';
+import { useShoppingCart } from '@/hooks/useShoppingCart';
 
 import styles from './CartItem.module.scss';
 import Image from 'next/image';

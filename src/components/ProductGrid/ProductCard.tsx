@@ -1,5 +1,5 @@
-import { formatToCurrency } from '@/app/utils/formatToCurrency';
-import { Product } from '@/app/data/mock';
+import { formatToCurrency } from '@/utils/formatToCurrency';
+import type { Product } from '@/data/mock';
 
 import styles from './ProductCard.module.scss';
 import Image from 'next/image';

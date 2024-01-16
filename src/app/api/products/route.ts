@@ -1,4 +1,4 @@
-import { allProducts } from '@/app/data/mock';
+import { allProducts } from '@/data/mock';
 
 export async function GET() {
   return Response.json(allProducts);

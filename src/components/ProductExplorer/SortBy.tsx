@@ -1,6 +1,6 @@
 'use client';
 
-import { useSortBy } from '@/app/hooks/useSortBy';
+import { useSortBy } from '@/hooks/useSortBy';
 
 import styles from './SortBy.module.scss';
 import Image from 'next/image';

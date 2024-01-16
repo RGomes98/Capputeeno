@@ -1,4 +1,4 @@
-import { getElementConditionalStyles } from '@/app/utils/getElementConditionalStyles';
+import { getElementConditionalStyles } from '@/utils/getElementConditionalStyles';
 
 import styles from './PaginationButton.module.scss';
 
